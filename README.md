@@ -43,7 +43,9 @@ The central place to store time-series data (sensor data - timestamp, temperatur
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/monitor%40home.gif" width="300px"/>
 </p>
 
-## Node-RED
+## IoT Sensor
+
+Simulate the sensor data with Node-RED. URL for HTTP request node is provided by Zapier WebHook.  
 
 <p align="center">
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/node-red-simulator.png" width="600px"/>
