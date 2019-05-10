@@ -17,7 +17,66 @@ The central place to store time-series data (sensor data = timestamp, temperatur
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/google_sheet_details.png" width="600px"/>
 </p>
 
-#### onChange Trigger
+#### [`onChange`](https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/Code.gs) Trigger
+
+```
+function onChange(e) {
+ 
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("Details");
+  var sheetT = ss.getSheetByName("Temperature"); // sheetT, sheetH, sheetU are used by glide tab
+  ...
+  
+  // 1. Sort descending by column A. New entry will be moved to the top (Row2). 3 charts will be re-generated with Row2-Row9.
+  var range = sheet.getRange("A2:E");
+  range.sort({column: 1, ascending:false});
+
+  // 2. extract the latest values 
+  // getRange(row, column, optNumRows, optNumColumns)
+  var rowRange = sheet.getRange(2, 1, 1, 5).getValues()[0];
+  var lastUpdated = new Date(rowRange[0]).toLocaleString(); // timestamp -> date/time
+  var currTemperature = rowRange[2];
+  var currHumidity = rowRange[3];
+  var currUvIndex = rowRange[4];
+  
+  // 3. ranndom string for images
+  var randomId  = new Date(rowRange[0]).toISOString(); //  use timestamp instead. convert it to ISO format.
+ 
+  // 4. update 'Temperature', 'Humidity` and 'UV index' worksheets
+  
+  // 4.1 Temperature Sheet
+  // example : Single cell editing
+  /*
+  var cell = sheet.getRange("C2"); 
+  cell.setValue(currTemperature+5);
+  */
+  var valuesT = [[
+    lastUpdated,
+    currTemperature,
+    "https://docs.google.com/spreadsheets/d/e/ABCDEFGHIJKLMNOPQRSTUVWXYZ?oid=123567890&format=image&update="+randomId
+  ]];
+  
+  var range = sheetT.getRange("A2:C2");
+  range.setValues(valuesT);
+
+  // 4.2 Humidity Sheet
+
+  ...
+  
+  // 4.3 UV Index Sheet
+  
+  ...
+  
+  // TODO : High-Water Mark Treatment
+  var colA = sheet.getRange("A1:A").getValues();
+  var colAlast = colA.filter(String).length; // non-empty row
+  
+  Logger.log(colAlast); 
+  // if ( colAlast >= highwaterMark ) delete oldest X rows
+}
+```
+
+From `Script Editor`, select `Edit` menu and go to `Current project's triggers` to add **onChange** trigger.
 
 <p align="center">
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/onchange_trigger.png" width="600px"/>
@@ -53,7 +112,7 @@ Only `Temperature`, `Humidiy` & `UV Index` worksheets are appeared. `Details` wo
 
 ## IoT Sensor
 
-Simulate (every 5 mins) the sensor data with Node-RED.  URL for HTTP request node can be found from Zapier Catch Hook > View WebHook.  
+URL for HTTP request node can be found from Zapier `Catch Hook` > `View WebHook`. Simulate (every 5 mins) the sensor data with Node-RED for this example. Alternatively create MQTT subscriber (+ rules) and post meaningful data over Zapier Webhook.
 
 <p align="center">
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/node-red-simulator.png" width="600px"/>
@@ -61,5 +120,5 @@ Simulate (every 5 mins) the sensor data with Node-RED.  URL for HTTP request nod
 
 ### Related Posts
 
-- [Glide:Create a mobile app from a Google Sheet](https://www.glideapps.com/)
-- [Zapier:Connect Your Apps and Automate Workflows](https://zapier.com/) 
+- [Glide : Create a mobile app from a Google Sheet](https://www.glideapps.com/)
+- [Zapier : Connect Your Apps and Automate Workflows](https://zapier.com/) 
