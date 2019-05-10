@@ -45,7 +45,7 @@ The central place to store time-series data (sensor data = timestamp, temperatur
 
 Please watch [tutorials](https://www.youtube.com/channel/UCoPJeYPmYF_5CX9gbPHAG3Q/videos) to learn about [`Glide`](https://www.glideapps.com/).
 
-Only `Temperature`, `Humidiy` & `UV Index` worksheets are appeared. `Details` worksheet are for tiem-series data storage.
+Only `Temperature`, `Humidiy` & `UV Index` worksheets are appeared. `Details` worksheet are for time-series data storage.
 
 <p align="center">
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/monitor%40home.gif" width="300px"/>
@@ -61,5 +61,5 @@ Simulate (every 5 mins) the sensor data with Node-RED.  URL for HTTP request nod
 
 ### Related Posts
 
-- [Glide](https://www.glideapps.com/)
-- [Zapier](https://zapier.com/) 
+- [Glide:Create a mobile app from a Google Sheet](https://www.glideapps.com/)
+- [Zapier:Connect Your Apps and Automate Workflows](https://zapier.com/) 
