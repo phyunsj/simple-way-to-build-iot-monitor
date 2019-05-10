@@ -9,9 +9,9 @@ The short instructions to create end-to-end IoT monitoring system.
 
 ## Google Sheet
 
-The central place to store time-series data (sensor data = timestamp, temperature, humidity, uv index). `Details` worksheet will be filled up with the sensor data. 3 charts are published as images to be displayed.
+The central place to store time-series data (sensor data = timestamp, temperature, humidity, uv index). `Details` worksheet will be filled up with the sensor data. 
 
- `onChange` script will be triggered whenever new row is created. `Temperature`,`Humidity` and `UV Index` worksheet will be updated based on new sensor data.
+ `onChange` script will be triggered whenever new row is created. `Temperature`,`Humidity` and `UV Index` worksheet will be updated based on new sensor data. 3 charts are also re-published whenever `onChange` is triggered.
  
 <p align="center">
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/google_sheet_details.png" width="600px"/>
