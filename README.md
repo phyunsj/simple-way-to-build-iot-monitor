@@ -53,7 +53,7 @@ function onChange(e) {
   var valuesT = [[
     lastUpdated,
     currTemperature,
-    "https://docs.google.com/spreadsheets/d/e/ABCDEFGHIJKLMNOPQRSTUVWXYZ?oid=123567890&format=image&update="+randomId
+    "https://docs.google.com/spreadsheets/d/e/<<Your-Published-Chart>>0&format=image&update="+randomId
   ]];
   
   var range = sheetT.getRange("A2:C2");
