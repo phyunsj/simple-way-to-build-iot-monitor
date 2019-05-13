@@ -102,6 +102,8 @@ From `Script Editor`, select `Edit` menu and go to `Current project's triggers` 
 
 ## Glide : https://monitormyhome.glideapp.io/
 
+**NOTE : Zapier(Live Update) is Disabled** 
+
 Please watch [tutorials](https://www.youtube.com/channel/UCoPJeYPmYF_5CX9gbPHAG3Q/videos) to learn more about [`Glide`](https://www.glideapps.com/).
 
 Only `Temperature`, `Humidiy` & `UV Index` worksheets are appeared. `Details` worksheet are for time-series data storage.
