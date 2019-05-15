@@ -3,7 +3,7 @@
 <img src="https://github.com/phyunsj/simple-way-to-build-iot-monitor/blob/master/images/zapier.glide.png" width="300px"/>
 </p>
 
-# A Simple Way to Build IoT Monitor
+# Home Sensor Monitor : A Simple Way to Build IoT Monitor
 
 The short instructions to create end-to-end IoT monitoring system.
 
@@ -53,7 +53,8 @@ function onChange(e) {
   var valuesT = [[
     lastUpdated,
     currTemperature,
-    "https://docs.google.com/spreadsheets/d/e/<<Your-Published-Chart>>0&format=image&update="+randomId
+    // URL : <<chart-path>>&format=image&update=<<randomId>>
+    "https://docs.google.com/spreadsheets/d/e/<<Your-Published-Chart>>&format=image&update="+randomId
   ]];
   
   var range = sheetT.getRange("A2:C2");
